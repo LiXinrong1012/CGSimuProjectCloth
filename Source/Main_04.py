@@ -1,7 +1,9 @@
 # Ref: https://graphics.stanford.edu/~mdfisher/cloth.html
 
 import taichi as ti
-
+# taichi version: 0.8.1
+#Main 04: Spining cloth - taichi is awesome
+resfolder = '../results/main04spin/'
 ti.init(arch=ti.cuda)
 
 # Air resistance
@@ -133,7 +135,7 @@ def Export(frameIndex: int):
   npU = vUV.to_numpy()
 
   fileName = 'S_%03d.obj'%(frameIndex)
-  with open(fileName, 'w') as F:
+  with open(resfolder+fileName, 'w') as F:
     for i in range(pointSize):
       F.write('v %.4f %.4f %.4f\n'%(npL[i,0],npL[i,1],npL[i,2]))
     for i in range(pointSize):

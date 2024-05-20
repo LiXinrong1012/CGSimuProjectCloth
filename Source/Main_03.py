@@ -1,7 +1,9 @@
 # Ref: https://graphics.stanford.edu/~mdfisher/cloth.html
 
 import taichi as ti
-
+# taichi version: 0.8.1
+#Main 03: Collision with sphere
+resfolder = '../results/main03sphere/'
 ti.init(arch=ti.cuda)
 
 EPS = 1e-10
@@ -180,7 +182,7 @@ def Export(i: int):
   mesh_writer.add_vertex_pos(npL[:, 0], npL[:, 1], npL[:, 2])
   mesh_writer.add_faces(npI)
 
-  mesh_writer.export_frame_ascii(i, 'S.ply')
+  mesh_writer.export_frame_ascii(i, resfolder+'S.ply')
 
   print('Frame >> %03d'%(i))
 
